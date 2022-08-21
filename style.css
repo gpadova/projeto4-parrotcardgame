@@ -19,6 +19,16 @@ body{
    
 }
 
+.place-of-cards{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
 .header h1{
     margin: 0 auto;
 }
@@ -27,12 +37,13 @@ body{
 .card{
     width: 117px;
     height: 146px;
-    
+    display: flex;
     margin-left: 34px;
     position: relative;
     border-radius: 5px;
+    justify-content: center;
     
-    margin: 0 auto;
+    
 }
 
 .card img{
@@ -56,18 +67,19 @@ body{
     justify-content: center;
     position: absolute;
     backface-visibility: hidden;
-    transition: all .5s;
+    transition: all 1s;
     transform-style: preserve-3d;
+    transition: all 500ms;
   }
 
 .back-face {
     transform: rotateY(180deg);
   }
 
-.card:hover .back-face {
+.flip-front-side {
     transform: rotateY(0deg);
   }
 
-.card:hover .front-face {
+.flip-back-side {
     transform: rotateY(-180deg);
   }  
