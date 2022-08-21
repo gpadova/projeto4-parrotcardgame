@@ -26,6 +26,7 @@ body{
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
 
 }
 
@@ -42,7 +43,7 @@ body{
     position: relative;
     border-radius: 5px;
     justify-content: center;
-    
+    margin-top: 60px;
     
 }
 
@@ -53,6 +54,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
+    
 }
 
 .face {
@@ -60,7 +62,7 @@ body{
     height: 100%;
     background-color: #A7E9AF;
     border-radius: 10px;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    box-shadow: 1px 1px 1px rgba(0,0,0,.4);
     border: 1px solid #99CEA8;
     display: flex;
     align-items: center;
@@ -69,7 +71,7 @@ body{
     backface-visibility: hidden;
     transition: all 1s;
     transform-style: preserve-3d;
-    transition: all 500ms;
+    
   }
 
 .back-face {
@@ -83,3 +85,9 @@ body{
 .flip-back-side {
     transform: rotateY(-180deg);
   }  
+
+.matched {
+  pointer-events: none;
+  transition-delay: 0.9s;
+  transition-duration: 0.3s;
+  } 
