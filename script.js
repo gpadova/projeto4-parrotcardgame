@@ -1,17 +1,18 @@
 let moves = 0
-
 let rightMoves = 0;
-let minhaArray = []
 const gifsArray = ['gif1', 'gif1', 'gif2', 'gif2', 'gif3', 'gif3', 'gif4', 'gif4', 'gif5', 'gif5', 'gif6','gif6', 'gif7', 'gif7']
 let requiredCards = Number(prompt("Qual seria o número de cartas do seu jogo? Lembrando que esse número tem  que estar entre 4 e 14 e ser um número par"))
 
-function addTheRequiredCards(){
-
-    while((requiredCards % 2 !== 0) ||((requiredCards > 14) || (requiredCards < 4))){
+function checkTheInput(){
+    while((requiredCards % 2 === 1) ||((requiredCards > 14) || (requiredCards < 4))){
         alert('Digite o número correto de cartas indicado no enunciado')
-        
-        return;
+        requiredCards = Number(prompt("Qual seria o número de cartas do seu jogo? Lembrando que esse número tem  que estar entre 4 e 14 e ser um número par"))
      }
+     addTheRequiredCards()
+}
+checkTheInput()
+
+function addTheRequiredCards(){
         let card = document.querySelector('.place-of-cards')
         let cardGames = []
         for(let i = 0; cardGames.length< requiredCards ; i++) {
@@ -37,14 +38,8 @@ function addTheRequiredCards(){
         }    
     }
 
-addTheRequiredCards()
 
 
-// function flipTheCard(card){
-//     card.querySelector(".front-face").classList.add("flip-back-side");
-//     card.querySelector(".back-face").classList.add("flip-front-side");
-//     checkWinningPlay() 
-// }
 
 function flipTheCard(card){
     let selectedCard = document.querySelectorAll('.card-holder .selected-class')
@@ -68,7 +63,7 @@ function flipTheCard(card){
 
 function checkWinningPlay(){
     let selectedCard = document.querySelectorAll('.place-of-cards .selected-class')
-    console.log(selectedCard.length)
+    
     if(selectedCard.length == 2){
         if(selectedCard[0].innerHTML === selectedCard[1].innerHTML){
             winningPlay()
@@ -90,7 +85,7 @@ function winningPlay(){
     
     rightMoves = rightMoves + 2
     moves = moves + 2
-    console.log('jogada certa')
+    
     checkIfTheGameWasWon()
 }
 
@@ -98,7 +93,7 @@ function notAWinningPlay(){
     let selectedCard = document.querySelectorAll('.place-of-cards .selected-class');
     let frontFaced = document.querySelectorAll('.selected-class .flip-back-side ');
     let backFaced = document.querySelectorAll('.selected-class .flip-front-side ');
-    console.log(selectedCard)
+
     frontFaced[0].classList.remove('flip-back-side')
     frontFaced[1].classList.remove('flip-back-side')
 
@@ -108,7 +103,7 @@ function notAWinningPlay(){
     selectedCard[0].classList.remove('selected-class')
     selectedCard[1].classList.remove('selected-class')
 
-    console.log("Jogada errada")
+    
     moves = moves + 2
 }
 
